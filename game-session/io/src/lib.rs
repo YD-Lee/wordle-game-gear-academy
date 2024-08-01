@@ -1,6 +1,6 @@
 #![no_std]
 
-use gmeta::{In, InOut, Out, Metadata};
+use gmeta::{InOut, Out, Metadata};
 use gstd::{prelude::*, ActorId, MessageId, collections::HashMap};
 use wordle_io::{Event};
 
@@ -8,9 +8,9 @@ pub struct GameSessionMetadata;
 
 impl Metadata for GameSessionMetadata {
     type Init = InOut<ActorId, GameSessionEvent>;
-    type Handle = In<GameSessionAction>;//InOut<GameSessionAction, GameSessionEvent>;
+    type Handle = InOut<GameSessionAction, GameSessionEvent>;
     type Others = ();
-    type Reply = In<Event>;//InOut<Event, GameSessionEvent>;
+    type Reply = InOut<Event, GameSessionEvent>;
     type Signal = ();
     type State = Out<State>;
 }
@@ -25,16 +25,12 @@ pub enum GameSessionAction {
 #[derive(Debug, Clone, Encode, Decode, PartialEq, TypeInfo)]
 pub enum GameSessionEvent {
     Initialized,
-    GameStarted {
-        user: ActorId,
-    },
+    GameStarted,
     WordChecked {
-        user: ActorId,
         correct_positions: Vec<u8>,
         contained_in_word: Vec<u8>,
     },
     GameOver {
-        user: ActorId,
         result: SessionResult
     },
 }
