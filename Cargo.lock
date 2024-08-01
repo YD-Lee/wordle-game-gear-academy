@@ -1762,6 +1762,7 @@ dependencies = [
  "gear-wasm-builder",
  "gstd",
  "gtest",
+ "wordle-io",
 ]
 
 [[package]]
@@ -1772,6 +1773,7 @@ dependencies = [
  "gstd",
  "parity-scale-codec",
  "scale-info",
+ "wordle-io",
 ]
 
 [[package]]
