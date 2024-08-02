@@ -7,23 +7,23 @@ use wordle_io::{Event};
 pub struct GameSessionMetadata;
 
 impl Metadata for GameSessionMetadata {
-    type Init = InOut<ActorId, GameSessionEvent>;
-    type Handle = InOut<GameSessionAction, GameSessionEvent>;
+    type Init = InOut<ActorId, SessionEvent>;
+    type Handle = InOut<SessionAction, SessionEvent>;
     type Others = ();
-    type Reply = InOut<Event, GameSessionEvent>;
+    type Reply = InOut<Event, SessionEvent>;
     type Signal = ();
     type State = Out<State>;
 }
 
 #[derive(Debug, Clone, Encode, Decode, TypeInfo)]
-pub enum GameSessionAction {
+pub enum SessionAction {
     StartGame,
     CheckWord { word: String },
     CheckGameStatus { user: ActorId },
 }
 
 #[derive(Debug, Clone, Encode, Decode, PartialEq, TypeInfo)]
-pub enum GameSessionEvent {
+pub enum SessionEvent {
     Initialized,
     GameStarted,
     WordChecked {
@@ -48,7 +48,7 @@ pub enum SessionStatus {
     StartGameSent,
     CheckWordWaiting,
     CheckWordSent,
-    ReplyReceived(GameSessionEvent),
+    ReplyReceived(SessionEvent),
 }
 
 type SentMessageId = MessageId;
