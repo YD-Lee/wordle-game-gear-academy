@@ -4,6 +4,9 @@ use wordle_io::*;
 
 static mut WORDLE: Option<Wordle> = None;
 
+#[cfg(test)]
+const BANK_OF_WORDS: [&str; 1] = ["house"];
+#[cfg(not(test))]
 const BANK_OF_WORDS: [&str; 3] = ["house", "human", "horse"];
 
 #[derive(Default)]
