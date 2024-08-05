@@ -133,7 +133,7 @@ fn check_game_status(user: &ActorId) {
     let state = unsafe {GAME_SESSION_STATE.as_mut()
         .expect("check_game_status: GAME_SESSION_STATE is not initialized")};
     if !state.user_to_session.contains_key(user) {
-        panic!("check_game_status: non-existing user");    
+        panic!("check_game_status: non-existing user");
     }
 
     let session: &mut Session = state.user_to_session.get_mut(user).unwrap();

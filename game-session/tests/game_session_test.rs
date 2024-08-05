@@ -62,7 +62,7 @@ fn test_win() {
     assert_eq!(session.result, SessionResult::Lose);
 }
 
-// #[test]
+#[test]
 fn test_lose_with_too_many_check() {
     let sys: System = setup();
     let game_session = sys.get_program(GAME_SESSION_ID).unwrap();

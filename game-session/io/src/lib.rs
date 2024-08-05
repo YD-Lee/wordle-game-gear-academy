@@ -2,7 +2,7 @@
 
 use gmeta::{InOut, Out, Metadata};
 use gstd::{prelude::*, ActorId, MessageId, collections::HashMap};
-use wordle_io::{Event};
+use wordle_io::Event;
 
 pub struct GameSessionMetadata;
 
