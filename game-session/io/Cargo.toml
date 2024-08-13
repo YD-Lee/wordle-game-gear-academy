@@ -9,3 +9,4 @@ gstd.workspace = true
 gmeta.workspace = true
 parity-scale-codec.workspace = true
 scale-info.workspace = true
+wordle-io.workspace = true
